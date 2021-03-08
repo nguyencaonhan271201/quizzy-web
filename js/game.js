@@ -81,6 +81,7 @@ let number_of_quest_control = new Vue({
     el: '#number-of-quest',
     data: {questCount: numberOfQuestions}
 })
+let result_div = document.querySelector(".result-div")
 
 startButton.addEventListener("click", function() {
     fadeOut(document.querySelector(".start-div"))
@@ -91,6 +92,7 @@ startButton.addEventListener("click", function() {
 })
 
 document.addEventListener("DOMContentLoaded", function() {
+    result_div.style.setProperty("display", "none", "important");
     if (topicId != 0 && numberOfQuestions >= 5) {
         getTopics(topicId);
         getQuestions(topicId, numberOfQuestions);
@@ -118,7 +120,14 @@ btn_next.$el.addEventListener("click", function() {
     }
     else 
     {
-        alert("Over");
+        background_music.pause();
+        background_music.currentTime = 0;
+        topic_result.topic = topic.name;
+        point_result.point = point_control.point;
+        ratio_result.correct = correctQuestCount;
+        ratio_result.total = numberOfQuestions;
+        ratio_result.ratio = (correctQuestCount * 100 / numberOfQuestions).toFixed(0);
+        fadeIn(result_div);
     }
 })
 
@@ -157,7 +166,10 @@ function getTopics(topicID){
           topic = results[topicID];
           topic_control.topic = topic.name;
           topic_start_control.topic = topic.name;
-          document.getElementById("topic-img").setAttribute("src", topic.image);
+          images = document.getElementsByClassName("topic-img");
+          for (i = 0; i < images.length; i++) {
+            images[i].setAttribute("src", topic.image);
+          }
         }
     }
     xhr.send();
@@ -168,6 +180,13 @@ function fadeOut(element) {
     setTimeout(function() {
         element.style = "opacity: 0; display:none; z-index: -1;";
     }, 300)
+}
+
+function fadeIn(element) {
+    element.style.display = "initial";
+    setTimeout(function() {
+        element.style.opacity = 1;
+    }, 10)
 }
 
 function checkAnswer(choice) {
@@ -355,3 +374,24 @@ function updatePicture(url) {
     question_content.style.marginBottom = "10px";
     question_media.style.height = "70%";
 }
+
+//Result zone
+let topic_result = new Vue({
+    el: '#topic-result',
+    data: {topic: topic.name}
+})
+
+let point_result = new Vue({
+    el: '#point-result',
+    data: {point: point_control.point}
+})
+
+let ratio_result = new Vue({
+    el: '#ratio-result',
+    data: {
+        correct: correctQuestCount,
+        total: numberOfQuestions,
+        ratio: (correctQuestCount / numberOfQuestions).toFixed(2)
+    }
+})
+

@@ -30,7 +30,7 @@
     margin-bottom: 0px;
 }
 
-.start-div {
+.start-div, .result-div {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,6 +39,10 @@
     height: 100%;
     width: 100%;
     transition: opacity 300ms;
+}
+
+.result-div {
+    z-index: 9!important;
 }
 
 audio {

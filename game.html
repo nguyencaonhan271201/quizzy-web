@@ -18,7 +18,7 @@
         <div class="text-center container-fluid">
             <h1 id="topic-start">Lĩnh vực: {{topic}}</h1>
             <h3 id="number-of-quest">Số câu hỏi: {{questCount}}</h3>
-            <img id="topic-img" alt="" src="" width="200px"/>
+            <img class="topic-img" alt="" src="" width="200px"/>
             <div class="row mt-1">
                 <button class="btn btn-info mx-auto" id="start-btn">Bắt đầu</button>
             </div>
@@ -70,6 +70,18 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="result-div d-flex align-items-center justify-content-center">
+        <div class="text-center container-fluid">
+            <h2 id="topic-result">Lĩnh vực: {{topic}}</h2>
+            <h1 id="point-result">{{point}}</h1>
+            <h3 id="ratio-result">Số câu đúng: {{correct}} / {{total}} ({{ratio}}%)</h3>
+            <div class="row mt-1">
+                <button class="btn btn-info mx-auto">
+                    <a style="color: white; text-decoration: none;" href="topic.html">Home</a>
+                </button>
             </div>
         </div>
     </div>
