@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'NexaBold';
+    src: url('res/font/nexa_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('res/font/nexa_book.otf');
+}
+
+ h1{
+     color: white;
+     font-family: NexaBold;
+ }
+
+ #landing_jumbo{
+    height: 90vh;
+    background-image: url("res/images/landing_background.png");
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: landing_background_move 500s linear infinite;
+}
+
+@keyframes landing_background_move {
+    from {
+      background-position: 0 0;
+    }
+    to {
+        background-position: -10000px -10000px;
+    }
+}
