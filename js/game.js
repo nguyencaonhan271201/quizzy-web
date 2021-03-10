@@ -6,10 +6,12 @@ let currentCorrectOption = 0;
 let correctQuestCount = 0;
 let topic = {};
 let topicId = 0;
+let username = "";
 
 let urlParams = new URLSearchParams(window.location.search);
 topicId = urlParams.get("topic");
 numberOfQuestions = urlParams.get("number");
+username = urlParams.get("username");
 
 let progress_bar_width = 100;
 let counterBack = setInterval(function () {
@@ -42,6 +44,12 @@ let quest_count_control = new Vue({
     data : {
         currentQuest: currentQuestion,
         totalQuest: numberOfQuestions
+    }
+})
+let username_control = new Vue({
+    el: '#username',
+    data : {
+        username: username
     }
 })
 let quest_control = new Vue({
@@ -128,8 +136,40 @@ btn_next.$el.addEventListener("click", function() {
         ratio_result.total = numberOfQuestions;
         ratio_result.ratio = (correctQuestCount * 100 / numberOfQuestions).toFixed(0);
         fadeIn(result_div);
+        uploadRecord();
     }
 })
+
+function uploadRecord() {
+    //Retaining 6 information so making 6 PUT requests
+    //Getting current timestamp for key
+    let timestamp = new Date().getTime();
+	let base_url = `https://quizzyweb-3e807-default-rtdb.firebaseio.com/records/${timestamp}/`;
+    
+    let xhr_correct = new XMLHttpRequest();
+    xhr_correct.open("PUT", base_url + 'correctQuest.json', true);
+    xhr_correct.send(correctQuestCount)
+
+    let xhr_point = new XMLHttpRequest();
+    xhr_point.open("PUT", base_url + 'point.json', true);
+    xhr_point.send(point_control.point)
+
+    let xhr_ratio = new XMLHttpRequest();
+    xhr_ratio.open("PUT", base_url + 'ratio.json', true);
+    xhr_ratio.send((correctQuestCount / numberOfQuestions))
+
+    let xhr_topic = new XMLHttpRequest();
+    xhr_topic.open("PUT", base_url + 'topic_id.json', true);
+    xhr_topic.send(`"${topicId}"`)
+
+    let xhr_totalquest = new XMLHttpRequest();
+    xhr_totalquest.open("PUT", base_url + 'totalQuest.json', true);
+    xhr_totalquest.send(numberOfQuestions)
+    
+    let xhr_username = new XMLHttpRequest();
+    xhr_username.open("PUT", base_url + 'username.json', true);
+    xhr_username.send(`"${username}"`)
+}
 
 function getQuestions(topicID, noQ){
     let xhr = new XMLHttpRequest();

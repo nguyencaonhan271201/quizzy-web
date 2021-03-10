@@ -88,9 +88,8 @@ audio {
 
 #btn-next {
     position: absolute !important;
-    top: 5px !important; 
-    left: 0px;
-    right: 0px;
+    bottom: 5px !important; 
+    right: 5px;
     margin: 0 auto !important;
 }
 

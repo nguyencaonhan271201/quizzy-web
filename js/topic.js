@@ -1,5 +1,6 @@
 let topic_select = document.getElementById("topic-select");
 let no_of_quest_select = document.getElementById("no-of-quest");
+let username_input = document.getElementById("username");
 let btn_confirm = document.getElementById("btn-confirm");
 let currentTopic = 1;
 let currentNumberOfQuest = 5;
@@ -11,19 +12,19 @@ document.addEventListener("DOMContentLoaded", function() {
 btn_confirm.addEventListener("click", function(e) {
     let topic_chosen = topic_select.options[topic_select.selectedIndex].value;
     let number_of_quest = no_of_quest_select.options[no_of_quest_select.selectedIndex].value;
-    window.location.href = `game.html?topic=${topic_chosen}&number=${number_of_quest}`;
+    window.location.href = `game.html?username=${username_input.value}&topic=${topic_chosen}&number=${number_of_quest}`;
 })
 
 topic_select.onchange = function() {
     let topic_chosen = this.options[this.selectedIndex].value;
     currentTopic = topic_chosen;
     fetchQuestionsNumberOfQuest(topic_chosen);
-    btn_confirm.setAttribute("href", `game.html?topic=${currentTopic}&number=${currentNumberOfQuest}`);
+    btn_confirm.setAttribute("href", `game.html?username=${username_input.value}&topic=${currentTopic}&number=${currentNumberOfQuest}`);
 }
 
 no_of_quest_select.onchange = function() {
     let currentNumberOfQuest = this.options[this.selectedIndex].value;;
-    btn_confirm.setAttribute("href", `game.html?topic=${currentTopic}&number=${currentNumberOfQuest}`);
+    btn_confirm.setAttribute("href", `game.html?username=${username_input.value}&topic=${currentTopic}&number=${currentNumberOfQuest}`);
 }
 
 document.getElementById("btn-confirm-outer").addEventListener("click", function(e) {
