@@ -7,7 +7,7 @@ let sort_record = {
     2: 'totalQuest',
     3: 'ratio',
     4: 'point',
-    5: 'time'
+    5: 'timestamp'
 }
 let sort_general = {
     1: 'username',
@@ -24,10 +24,14 @@ let count_entries = new Vue({
     }
 })
 let page_size = 10;
+let main_div = document.querySelector('.main-div')
+let nav_bar = document.querySelector('.navbar');
 
 document.addEventListener("DOMContentLoaded", function() {
+    setBackgroundHeight();
     initializeRecord();
 })
+
 
 topic_select.onchange = function() {
     fetchRecords(this.options[this.selectedIndex].value);
@@ -62,6 +66,19 @@ Number.prototype.pad = function(size) {
     return s;
 }
 
+function setBackgroundHeight() {
+    height = window.innerHeight - nav_bar.offsetHeight;
+    main_div.style.height = `${height}px`;
+}
+
+function resetBackgroundHeight() {
+    main_div.style.setProperty("height", "100%", "important");
+    if (main_div.offsetHeight + nav_bar.offsetHeight > window.innerHeight) {
+        main_div.style.setProperty("height", "100%", "important");
+    } else {
+        setBackgroundHeight();
+    }
+}
 
 function fetchTopic() {
     let xhr = new XMLHttpRequest();
@@ -156,6 +173,7 @@ function updatePagination(length, current) {
         }
     }
     pagination.innerHTML = html;
+    resetBackgroundHeight();
 }
 
 function printResultRecords(records, start, end) {

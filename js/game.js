@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
     else
     {
         alert("Thông số không chính xác!");
-        window.location.href = "topic.html";
+        window.location.href = "index.html";
     }
     for (let i = 0; i < optionButtons.length; i++) {
         optionButtons[i].addEventListener("click", function() {
@@ -278,6 +278,7 @@ function showAnswer() {
             optionButtons[i].classList.add("btn-success");
         else
             optionButtons[i].classList.add("btn-danger");
+        optionButtons[i].style.setProperty("opacity", 1, "important");
     }
     btn_next.$el.style.display = "initial";
 }
@@ -321,6 +322,7 @@ function showNextQuestion() {
             option4.option = "";
             for (let i = 0; i < 4; i++) {
                 optionButtons[i].disabled = true;
+                optionButtons[i].style.setProperty("opacity", 1, "important");
             }
         }
         else

@@ -7,10 +7,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/board.css">
     <title>Quizzy Web - Leaderboard</title>
+    <link rel="icon" href="res/images/ic_launcher_round.png"/>
 </head>
 <body>
-    <div class="start-div d-flex align-items-center justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="res/images/ic_launcher_round.png">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Info</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="main-div d-flex justify-content-center pt-2">
         <div class="container-fluid align-items-center" style="width: 90vw; margin: 0 auto;">
             <form>
                 <div class="row">
@@ -32,7 +56,7 @@
                         </select>
                     </div>
                 </div>
-                <table class="table table-striped table-bordered table-hover" style="width: 100%" id="leaderboard">
+                <table class="table table-dark table-striped table-bordered table-hover" style="width: 100%" id="leaderboard">
                     <thead>
                         <tr>
                             

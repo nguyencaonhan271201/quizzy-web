@@ -1,11 +1,61 @@
+@font-face {
+    font-family: 'NexaBold';
+    src: url('../res/font/nexa_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('../res/font/nexa_book.otf');
+}
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
+body { 
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
+h1, h2, h3, h4 {
+    font-family: NexaBold;
+}
+
+h5, p, li, a, button, label, select {
+    font-family: Nexa;
+}
+
 .game-div {
-    background: lightblue;
+    background-image: url('../res/images/landing_background.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: landing_background_move 500s linear infinite;
     height: 100vh;
+}
+
+@keyframes landing_background_move {
+    from {
+      background-position: 0 0;
+    }
+    to {
+        background-position: -10000px -10000px;
+    }
 }
 
 .game-div .container-fluid {
@@ -13,6 +63,16 @@
     margin: 0 auto;
     height: 100%;
     padding: 0px;
+}
+
+.game-div .info {
+    color: white;
+    font-family: 'Nexa';
+}
+
+#point {
+    color: white;
+    font-family: 'NexaBold';
 }
 
 .question {
@@ -34,11 +94,15 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: lightblue;
+    background-image: url('../res/images/landing_background.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: landing_background_move 500s linear infinite;
     z-index: 10;
     height: 100%;
     width: 100%;
-    transition: opacity 300ms;
+    color: white;
 }
 
 .result-div {

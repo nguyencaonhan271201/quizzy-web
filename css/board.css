@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'NexaBold';
+    src: url('../res/font/nexa_bold.ttf');
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('../res/font/nexa_book.otf');
+}
+
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
+@keyframes landing_background_move {
+    from {
+      background-position: 0 0;
+    }
+    to {
+        background-position: -10000px -10000px;
+    }
+}
+
+body { 
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+
+.main-div {
+    background-image: url('../res/images/landing_background.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: landing_background_move 500s linear infinite;
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1, h2, h3, h4 {
+    font-family: NexaBold;
+    color: white;
+}
+
+h5, p, li, a, button, label, select {
+    font-family: Nexa;
+    color: white;
+}
+
+table {
+    font-family: Nexa;
+    color: white  !important;
+}
