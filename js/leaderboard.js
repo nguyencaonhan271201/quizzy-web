@@ -155,13 +155,11 @@ function fetchRecordsWithRange(topicID, start, end) {
 }
 
 function updatePagination(length, current) {
-    let min = 0;
+    let min = 1;
     let max = 0;
     if (currentMode == 0) {
-        min = Math.floor(records.length / page_size) == 0 ? 1 : Math.floor(records.length / page_size);
         max = Math.ceil(records.length / page_size);
     } else {
-        min = Math.floor(players.length / page_size) == 0 ? 1 : Math.floor(players.length / page_size);
         max = Math.ceil(players.length / page_size);
     }
     html = "";
@@ -227,17 +225,17 @@ btn_general.addEventListener("click", function() {
 function initializeRecord() {
     html_sort_select = `
         <option value="1">Username</option>
-        <option value="2">Số câu hỏi</option>
-        <option value="3">Tỉ lệ đúng (%)</option>
-        <option value="4">Điểm</option>
-        <option value="5">Thời gian</option>
+        <option value="2">Number of questions</option>
+        <option value="3">Correct ratio (%)</option>
+        <option value="4">Point</option>
+        <option value="5">Time</option>
     `;
     leaderboard_header_html = `
         <th>Username</th>
-        <th>Số câu hỏi</th>
-        <th>Tỉ lệ đúng (%)</th>
-        <th>Điểm</th>
-        <th>Thời gian</th>
+        <th>Number of questions</th>
+        <th>Correct ratio (%)</th>
+        <th>Point</th>
+        <th>Time</th>
     `
     sort_select.innerHTML = html_sort_select;
     leaderboard.querySelector("thead tr").innerHTML = leaderboard_header_html;
@@ -248,15 +246,15 @@ function initializeRecord() {
 function initializeGeneral() {
     html_sort_select = `
         <option value="1">Username</option>
-        <option value="2">Số lần chơi</option>
-        <option value="3">Tỉ lệ đúng trung bình (%)</option>
-        <option value="4">Tổng số điểm</option>
+        <option value="2">Number of games</option>
+        <option value="3">Average correct ratio (%)</option>
+        <option value="4">Total points</option>
     `;
     leaderboard_header_html = `
         <th>Username</th>
-        <th>Số lần chơi</th>
-        <th>Tỉ lệ đúng trung bình (%)</th>
-        <th>Tổng số điểm</th>
+        <th>Number of games</th>
+        <th>Average correct ratio (%)</th>
+        <th>Total points</th>
     `
     sort_select.innerHTML = html_sort_select;
     leaderboard.querySelector("thead tr").innerHTML = leaderboard_header_html;

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 btn_start.addEventListener('click', function() {
-    window.location.href = `topic.html?username=${username_input.value}`;
+    window.location.href = `choosing.html?username=${username_input.value}`;
 })
 
 function setBackgroundHeight() {

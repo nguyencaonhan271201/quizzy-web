@@ -14,11 +14,11 @@
 <body>
     <div class="start-div d-flex align-items-center justify-content-center">
         <div class="text-center container-fluid">
-            <h1 id="topic-start">Lĩnh vực: {{topic}}</h1>
-            <h3 id="number-of-quest">Số câu hỏi: {{questCount}}</h3>
+            <h1 id="topic-start">Topic: {{topic}}</h1>
+            <h3 id="number-of-quest">Number of questions: {{questCount}}</h3>
             <img class="topic-img" alt="" src="" width="200px"/>
             <div class="row mt-1">
-                <button class="btn btn-info mx-auto" id="start-btn">Bắt đầu</button>
+                <button class="btn btn-info mx-auto" id="start-btn">Start</button>
             </div>
         </div>
     </div>
@@ -26,16 +26,16 @@
         <div class="container-fluid">
             <div class="info d-flex align-items-center p-2 row">
                 <div class="col-lg-4 col-md-4 col-sm-12 text-left">
-                    <h5 id="topic">Lĩnh vực: {{topic}}</h5>
+                    <h5 id="topic">Topic: {{topic}}</h5>
                     <h5 id="username">{{username}}</h5>
                 </div>
                 <h1 id="point" class="col-lg-4 col-md-4 col-sm-12 text-center">{{point}}</h1>
                 <div class="col-lg-4 col-md-4 col-sm-12 text-right">
-                    <h5 id="quest-count">Câu hỏi: {{currentQuest}} / {{totalQuest}}</h5>
+                    <h5 id="quest-count">Question: {{currentQuest}} / {{totalQuest}}</h5>
                 </div>
             </div>
             <div class="progress mb-2">
-                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="question">
                 <div class="question-content p-2 d-flex align-items-center">
@@ -78,15 +78,15 @@
     </div>
     <div class="result-div d-flex align-items-center justify-content-center">
         <div class="text-center container-fluid">
-            <h2 id="topic-result">Lĩnh vực: {{topic}}</h2>
+            <h2 id="topic-result">Topic: {{topic}}</h2>
             <h1 id="point-result">{{point}}</h1>
-            <h3 id="ratio-result">Số câu đúng: {{correct}} / {{total}} ({{ratio}}%)</h3>
+            <h3 id="ratio-result">Number of correct questions: {{correct}} / {{total}} ({{ratio}}%)</h3>
             <div class="row mt-1">
                 <button class="btn btn-info mx-auto">
-                    <a style="color: white; text-decoration: none;" href="index.html">Trang chủ</a>
+                    <a style="color: white; text-decoration: none;" href="index.html">Home</a>
                 </button>
                 <button class="btn btn-info mx-auto">
-                    <a style="color: white; text-decoration: none;" href="leaderboard.html">Bảng tổng sắp</a>
+                    <a style="color: white; text-decoration: none;" href="leaderboard.html">Leaderboard</a>
                 </button>
             </div>
         </div>
