@@ -68,18 +68,18 @@ function createCard(apiResult){
     const card = document.createElement('div');
     // Construct card content
     const cardContent = `
-      <div class="card col-md-3">
+      <div class="card col-md-3" id="topic-card-${idx}">
       <img class="card-img-top" src="${result.image}" alt="">
       <div class="card-title">
         <h3 class="mb-0"><b>${result.name}<b></h3>
       </div>
         <div class="card-body">
           <div class="container">
-             <div class="row">
+             <div class="row justify-content-center">
                <div class="col-xs-3 col-xs-offset-3">
                   <div class="input-group number-spinner">
                       <span class="input-group-btn">
-                           <button class="btn btn-default" data-dir="dwn"><span class="fa fa-minus"></span></button>
+                           <button class="btn btn-default" data-dir="dwn" id="btn-${idx}"><span class="fa fa-minus"></span></button>
                       </span>
                       <input type="number" class="form-control text-center" min="5" max="" value="5">
                       <span class="input-group-btn">
@@ -89,7 +89,7 @@ function createCard(apiResult){
                </div>
            </div>
       </div>
-          <button class="btn btn-primary btn-block" style="margin-top: 1rem" ">Start</button>
+          <button class="btn btn-info btn-lg btn-block" style="margin-top: 1rem" ">Start</button>
         </div>
       </div>
     `;
