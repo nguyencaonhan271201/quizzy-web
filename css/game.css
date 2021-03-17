@@ -46,7 +46,7 @@ h5, p, li, a, button, label, select {
     background-repeat: repeat;
     background-position: 0 0;
     animation: landing_background_move 500s linear infinite;
-    height: 100vh;
+    height: auto;
 }
 
 @keyframes landing_background_move {

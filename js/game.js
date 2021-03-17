@@ -100,6 +100,7 @@ startButton.addEventListener("click", function() {
 })
 
 document.addEventListener("DOMContentLoaded", function() {
+    resizeBackground();
     result_div.style.setProperty("display", "none", "important");
     if (topicId != 0 && numberOfQuestions >= 5) {
         getTopics(topicId);
@@ -415,6 +416,14 @@ function updatePicture(url) {
     question_content.style.height = "30%";
     question_content.style.marginBottom = "10px";
     question_media.style.height = "70%";
+}
+
+function resizeBackground() {
+    if (gameDiv.offsetHeight < window.innerHeight) {
+        gameDiv.style.setProperty("height", "100vh");
+    } else {
+        gameDiv.style.setProperty("height", `${gameDiv.offsetHeight}px`);
+    }
 }
 
 //Result zone
