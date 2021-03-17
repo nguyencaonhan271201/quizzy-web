@@ -1,3 +1,11 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body *{
+    transition: all 0.5s ease;
+}
+
 @font-face {
     font-family: 'NexaBold';
     src: url('../res/font/nexa_bold.ttf');
@@ -46,7 +54,7 @@ h5, p, li, a, button, label, select {
     background-repeat: repeat;
     background-position: 0 0;
     animation: landing_background_move 500s linear infinite;
-    height: auto;
+    height: 100vh;
 }
 
 @keyframes landing_background_move {
@@ -56,6 +64,11 @@ h5, p, li, a, button, label, select {
     to {
         background-position: -10000px -10000px;
     }
+}
+
+#username{
+    font-family: NexaBold;
+    color: aquamarine;
 }
 
 .game-div .container-fluid {
@@ -68,6 +81,21 @@ h5, p, li, a, button, label, select {
 .game-div .info {
     color: white;
     font-family: 'Nexa';
+}
+
+.button_1
+{    
+    border: 3px solid #f2e3bb;
+    border-radius: 20px;
+    padding: 5px 7px 5px 7px;
+    background-color: transparent;
+    color: #f2e3bb;
+    margin: 10px;
+}
+
+.button_1:hover{
+    background-color: #f2e3bb;
+    color: #353637;
 }
 
 #point {
@@ -111,6 +139,10 @@ h5, p, li, a, button, label, select {
 
 audio {
     display: none;
+}
+
+.question-media{
+    margin: 10px;
 }
 
 .question-media * {
@@ -215,6 +247,11 @@ audio {
 
     .question {
         height: 40vh;
+        padding-bottom: 0.8vh;
+    }
+
+    .question-content{
+        min-height: 20vh;
     }
 
     .question h3 {
@@ -252,4 +289,4 @@ audio {
     .answer-div .btn-info, .btn-success, .btn-danger {
         padding: 10px;
     }
-  }
+}

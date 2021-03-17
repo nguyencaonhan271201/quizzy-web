@@ -153,3 +153,21 @@ $(document).on('click', '.number-spinner button', function () {
   }
 });
 
+//card cosmestics
+$(document).on({
+  mouseenter: function () {
+    let imgurl = $(this).find('img').attr('src');
+    $(".background").css('background-image',`url('${imgurl}')`);
+    $(".background").css('background-size','20%');
+    $(".background").css('filter',`blur(20px)`);
+    $(".jumbotron h1").css('color','#353637');
+  },
+  mouseleave: function () {
+    let imgurl2 = 'res/images/landing_background.png';
+    $(".background").css('background-image',`url('${imgurl2}')`);
+    $(".background").css('background-size','auto');
+    $(".background").css('filter',`none`);
+    $(".jumbotron h1").css('color','#f2e3bb');
+  }
+},'.card');
+

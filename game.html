@@ -18,7 +18,7 @@
             <h3 id="number-of-quest">Number of questions: {{questCount}}</h3>
             <img class="topic-img" alt="" src="" width="200px"/>
             <div class="row mt-1">
-                <button class="btn btn-info mx-auto" id="start-btn">Start</button>
+                <button class=" button_1 mx-auto" id="start-btn">Start</button>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             <div class="question">
                 <div class="question-content p-2 d-flex align-items-center">
                     <h3 id="question" class="mx-auto" style='text-align: center;'>{{question}}</h3>
-                    <button id="btn-next" class="btn btn-info">{{content}}</button>
+                    <button id="btn-next" class="button_1">{{content}}</button>
                 </div>
                 <div class="question-media text-center">
                     <audio style="display: none;" src="#" id="question-audio"></audio>
@@ -48,6 +48,7 @@
                     <img src="#" alt="" id="question-image"/>
                 </div>
             </div>
+
             <div class="answer-div mt-3">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12 left-col">
@@ -81,11 +82,12 @@
             <h2 id="topic-result">Topic: {{topic}}</h2>
             <h1 id="point-result">{{point}}</h1>
             <h3 id="ratio-result">Number of correct questions: {{correct}} / {{total}} ({{ratio}}%)</h3>
-            <div class="row mt-1">
-                <button class="btn btn-info mx-auto">
+            <div class="row d-flex justify-content-center">
+                <button class="button_1 col-md-3 offset-md-3">
                     <a style="color: white; text-decoration: none;" href="index.html">Home</a>
                 </button>
-                <button class="btn btn-info mx-auto">
+                
+                <button class="button_1 col-md-3">
                     <a style="color: white; text-decoration: none;" href="leaderboard.html">Leaderboard</a>
                 </button>
             </div>

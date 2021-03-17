@@ -68,7 +68,8 @@ Number.prototype.pad = function(size) {
 
 function setBackgroundHeight() {
     height = window.innerHeight - nav_bar.offsetHeight;
-    main_div.style.height = `${height}px`;
+    main_div.style.setProperty("height", `${height}px`, "important");
+    main_div.style.setProperty("margin-top", `${nav_bar.offsetHeight}px`, "important");
 }
 
 function resetBackgroundHeight() {

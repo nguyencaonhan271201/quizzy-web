@@ -78,7 +78,7 @@ let option4 = new Vue({
 optionButtons = [option1.$el, option2.$el, option3.$el, option4.$el]
 let btn_next = new Vue({
     el: '#btn-next',
-    data : {content: 'Tiếp theo'}
+    data : {content: 'Next'}
 })
 let question_content = document.querySelector(".question-content")
 let question_media = document.querySelector(".question-media")
@@ -303,7 +303,7 @@ function showNextQuestion() {
         optionsContentShuffled.push(optionsOriginalContent[randomIndex[i]])
     }
     if (currentQuestion == numberOfQuestions) {
-        btn_next.content = "Kết thúc";
+        btn_next.content = "End";
     }
     optionButtons.forEach((element) => {
         if (element.classList.contains("btn-danger"))

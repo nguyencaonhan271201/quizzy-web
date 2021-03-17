@@ -23,9 +23,18 @@ body {
   animation-fill-mode: forwards; 
 } 
 
+body *{  
+  transition: all 0.5s ease;
+}
+
 html {
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 * {
   margin: 0px;
@@ -51,7 +60,7 @@ h5, p, li, a, button, label, select {
 }
 
 .card {
-  border: none;
+  border-radius: 20px;
   color: black;
   margin: 1rem;
   text-align: center;
@@ -63,11 +72,11 @@ h5, p, li, a, button, label, select {
     margin-top: 2rem;
   }
 
-.jumbotron {
+.background{
+  z-index: -1;
   margin-bottom: 0px;
-  margin-top: 70px;
-  background: transparent;
-  position: absolute;
+  /*margin-top: 70px;*/
+  position: fixed;
   top: 0;
   left: 0;
   background-image: url('../res/images/landing_background.png');
@@ -76,12 +85,29 @@ h5, p, li, a, button, label, select {
   background-position: 0 0;
   animation: landing_background_move 500s linear infinite;
   height: 100%;
-  width: 100%;
+  width: 100%;  
+}
+
+.jumbotron{
+  background: transparent !important;;
+}
+
+.jumbotron h1{
+  padding-bottom: 10vh;
 }
 
 .card {
   color: #f2e3bb;
   background: #353637;
+  padding: 3px;
+}
+
+.card:hover{
+  transform: scale(1.08);
+}
+
+.card img{
+  border-radius: 15px;
 }
 
 .card input, .card textarea {
