@@ -78,7 +78,7 @@ let option4 = new Vue({
 optionButtons = [option1.$el, option2.$el, option3.$el, option4.$el]
 let btn_next = new Vue({
     el: '#btn-next',
-    data : {content: 'Tiếp theo'}
+    data : {content: 'Next'}
 })
 let question_content = document.querySelector(".question-content")
 let question_media = document.querySelector(".question-media")
@@ -100,6 +100,7 @@ startButton.addEventListener("click", function() {
 })
 
 document.addEventListener("DOMContentLoaded", function() {
+    resizeBackground();
     result_div.style.setProperty("display", "none", "important");
     if (topicId != 0 && numberOfQuestions >= 5) {
         getTopics(topicId);
@@ -302,7 +303,7 @@ function showNextQuestion() {
         optionsContentShuffled.push(optionsOriginalContent[randomIndex[i]])
     }
     if (currentQuestion == numberOfQuestions) {
-        btn_next.content = "Kết thúc";
+        btn_next.content = "End";
     }
     optionButtons.forEach((element) => {
         if (element.classList.contains("btn-danger"))
@@ -415,6 +416,14 @@ function updatePicture(url) {
     question_content.style.height = "30%";
     question_content.style.marginBottom = "10px";
     question_media.style.height = "70%";
+}
+
+function resizeBackground() {
+    if (gameDiv.offsetHeight < window.innerHeight) {
+        gameDiv.style.setProperty("height", "100vh");
+    } else {
+        gameDiv.style.setProperty("height", `${gameDiv.offsetHeight}px`);
+    }
 }
 
 //Result zone

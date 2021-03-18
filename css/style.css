@@ -2,13 +2,16 @@ html{
   scroll-behavior: smooth;
 }
 
-body *{
+body * {
     transition: all 0.5s ease;
 }
 
 body{
     background-color: #2B4043;
     color: #f2e3bb;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
 }
 
 ::-webkit-scrollbar {
@@ -25,6 +28,15 @@ body{
     src: url('../res/font/nexa_book.otf');
 }
 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
 .navbar{
     position: fixed!important;
     top: 0;
@@ -38,7 +50,7 @@ h1{
      font-family: NexaBold;
  }
 
- #landing_jumbo{
+#landing_jumbo {
     height: 100vh;
     background-image: url("../res/images/landing_background.png");
     background-size: auto;
@@ -89,6 +101,10 @@ input.form-control:focus::placeholder{
     animation: shake 0.5s;
     animation-iteration-count: 1;
     border: 3px solid salmon;
+}
+
+.navbar-nav {
+    font-family: 'Nexa';
 }
 
 @keyframes shake {
