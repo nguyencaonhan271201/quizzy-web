@@ -28,6 +28,14 @@ body{
     src: url('../res/font/nexa_book.otf');
 }
 
+h1{
+    font-family: NexaBold;
+}
+
+h2, h3, h4, h5, a, p, ::placeholder, button, label, select,table{
+   font-family: Nexa;
+}
+
 @keyframes fadeInAnimation { 
     0% { 
         opacity: 0; 
@@ -42,15 +50,109 @@ body{
     top: 0;
     right: 0;
     left: 0;    
-    background-color: #232526;
+    background-color: #2B4043;
+    border-bottom-left-radius: 25px!important;
+    border-bottom-right-radius: 25px!important;
     transition: top 0.3s;
 }
 
-h1{
-     font-family: NexaBold;
- }
+.navbar ul li a:hover{
+    color: #f2e3bb!important;
+    border: 2px solid #f2e3bb;
+    border-radius: 15px;
+    padding: 10px;
+    width: fit-content;
+}
 
-#landing_jumbo {
+.navbar button{
+    padding: 10px 5px 10px 5px;
+}
+
+.navbar button #nav-icon3{
+    width: 40px;
+    height: 20px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon3 span{
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+
+    opacity: 0.3;
+    left: 0;
+    
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon3 span:nth-child(1) {
+    top: 0px;
+  }
+  
+  #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
+    top: 10px;
+  }
+  
+  #nav-icon3 span:nth-child(4) {
+    top: 20px;
+  }
+  
+  #nav-icon3.open span:nth-child(1) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+  }
+  
+  #nav-icon3.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  #nav-icon3.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  #nav-icon3.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+  }
+
+
+.navbar button:hover{
+    border: 2px solid !important;
+}
+
+.navbar button:hover span{
+    opacity: 1!important;
+    background: #f2e3bb!important;
+}
+
+#landing_jumbo, .main-div{
     height: 100vh;
     background-image: url("../res/images/landing_background.png");
     background-size: auto;
@@ -66,79 +168,4 @@ h1{
     to {
         background-position: -10000px -10000px;
     }
-}
-
-.form-control{
-    background-color: #2B4043;
-    border: none;
-    color: #f2e3bb;
-}
-
-.form-control::placeholder{
-    color: #f2e3bb;
-}
-
-input.form-control:focus::placeholder{
-    color: #2B4043;
-}
-
-.button_1
-{    
-    border: 3px solid #f2e3bb;
-    border-radius: 20px;
-    padding: 5px 7px 5px 7px;
-    background-color: transparent;
-    color: #f2e3bb;
-    margin: 10px;
-}
-
-.disabled{
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.shake{
-    animation: shake 0.5s;
-    animation-iteration-count: 1;
-    border: 3px solid salmon;
-}
-
-.navbar-nav {
-    font-family: 'Nexa';
-}
-
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-  }
-
-#mobile_ad{    
-    height: 90vh;
-    background-image: url("../res/images/mockup.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #2B4043;
-    padding-top: 2.5vh;
-}
-
-footer{
-    background-color: #232526;
-}
-
-footer .btn {
-    filter: brightness(0) saturate(100%) invert(97%) sepia(63%) saturate(543%) hue-rotate(317deg) brightness(101%) contrast(90%);
-}
-
-footer .btn:hover{
-    filter: invert(9%) sepia(11%) saturate(358%) hue-rotate(155deg) brightness(93%) contrast(85%);
 }

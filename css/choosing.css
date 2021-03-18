@@ -85,7 +85,7 @@ h5, p, li, a, button, label, select {
   background-position: 0 0;
   animation: landing_background_move 500s linear infinite;
   height: 100%;
-  width: 100%;  
+  width: 100%; 
 }
 
 .jumbotron{

@@ -158,7 +158,7 @@ $(document).on({
   mouseenter: function () {
     let imgurl = $(this).find('img').attr('src');
     $(".background").css('background-image',`url('${imgurl}')`);
-    $(".background").css('background-size','20%');
+    $(".background").css('background-size','15%');
     $(".background").css('filter',`blur(20px)`);
     $(".jumbotron h1").css('color','#353637');
   },
