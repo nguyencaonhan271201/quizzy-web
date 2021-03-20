@@ -60,6 +60,8 @@ h5, p, li, a, button, label, select {
 }
 
 .card {
+  max-height: 75vh;
+  margin: auto auto !important;
   border-radius: 20px;
   color: black;
   margin: 1rem;
@@ -85,15 +87,20 @@ h5, p, li, a, button, label, select {
   background-position: 0 0;
   animation: landing_background_move 500s linear infinite;
   height: 100%;
-  width: 100%;  
+  width: 100%; 
 }
 
 .jumbotron{
-  background: transparent !important;;
+  background: transparent !important;
+  padding-bottom: 0px;
+  padding-top: 5vh;
+  width: 90vw;
+  margin: 0 auto;
+  opacity: 0;
 }
 
 .jumbotron h1{
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
 }
 
 .card {
@@ -102,9 +109,16 @@ h5, p, li, a, button, label, select {
   padding: 3px;
 }
 
-.card:hover{
-  transform: scale(1.08);
+.loading .spinner-border {
+  color: #f2e3bb;
+  text-align: center;
+  width: 5vh;
+  height: 5vh;
 }
+
+/* .card:hover{
+  transform: scale(1.08);
+} */
 
 .card img{
   border-radius: 15px;
@@ -154,10 +168,59 @@ h5, p, li, a, button, label, select {
   color: #f2e3bb;
 }
 
+.swiper-container {
+  width: 90vw !important;
+  height: 80vh !important;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  height: 50% !important;
+  width: auto;
+  padding-bottom: 3vh !important;
+}
+
+.card-img-top{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-title {
+  margin-top: 1rem !important;
+}
+
+@media only screen and (max-width: 992px) {
+  .swiper-container {
+    height: 80vh !important;
+  }
+
+  .jumbotron-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   div#topic-card {
     width: 100%;
     margin: 0px;
+  }
+
+  .swiper-container {
+    height: 80vh !important;
+  }
+
+  .card-title {
+    margin-top: .25rem !important;
+    margin-bottom: .25rem !important;
+  }
+
+  .card .btn-info {
+    margin-top: .25rem !important;
   }
 }
 

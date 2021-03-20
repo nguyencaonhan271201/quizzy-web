@@ -54,7 +54,8 @@ h5, p, li, a, button, label, select {
     background-repeat: repeat;
     background-position: 0 0;
     animation: landing_background_move 500s linear infinite;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
 }
 
 @keyframes landing_background_move {
@@ -241,13 +242,25 @@ audio {
 }
 
 @media only screen and (max-width: 993px) {
-    .info .text-left, .info .text-left, .info .text-right {
+    .info .text-left, .info .text-right {
         text-align: center !important;
     }
 
     .question {
-        height: 40vh;
+        height: 45vh;
         padding-bottom: 0.8vh;
+    }
+
+    .question-media * {
+        max-height: 90%;
+        height: 100%;
+        max-width: 100%;
+        width: auto;
+        align-items: center;
+    }
+
+    .question-media img {
+        object-fit: contain;
     }
 
     .question-content{
@@ -266,6 +279,7 @@ audio {
     .answer-div {
         min-height: 30vh;
         height: auto;
+        margin-top: 10px !important;
     }
 
     .answer-div .row div {
