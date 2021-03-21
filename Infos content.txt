@@ -1,0 +1,1 @@
+Quizzy is a web game for everyone. True to its name, it is a game contains questions about knowledge. Our game is currently having a bunch of subjects, and many more contents will be adding in the future updates. There are 2 game modes in our game, playing solo(local) or playing versus other people. The web also has a leaderboard for everyone to compete.
