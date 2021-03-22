@@ -1,0 +1,57 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  height:100%;
+  width: 100%;
+}
+
+p{
+  font-family: 'Nexa';
+  font-size: 20px;
+}
+
+.banner{
+  background:  #232526;
+  color: #F2E3BB;
+}
+
+.col-md-6{
+  height:100%;
+  display: table;
+}
+
+.name{
+  margin-top: 30%;
+}
+
+
+img{
+  height: 60%;
+  width:60%;
+}
+
+ .who1{
+   background-color: #F2E3BB;
+   color: #2B4043;
+   text-align: center;
+ }
+
+.who2{
+  background-color: #2B4043;
+  color: #F2E3BB;
+  text-align: center;
+}
+
+hr{
+    background:linear-gradient(45deg,#1ccebc,#6ac5de);
+    height: 3px;
+    width: 90px;
+    margin: 0 0 5px 0;
+  }
+
+.why{
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
+}
