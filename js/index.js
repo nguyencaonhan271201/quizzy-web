@@ -3,7 +3,7 @@ let username_input = document.getElementById("username");
 let btn_start = document.getElementById("btn-start");
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    if (!(btn_start.value == null || this.value=='')){
+    if (username_input.value != null && username_input.value!=''){
         btn_start.classList.remove("disabled");
     }
 });

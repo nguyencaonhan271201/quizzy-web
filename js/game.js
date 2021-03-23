@@ -138,6 +138,10 @@ btn_next.$el.addEventListener("click", function() {
         ratio_result.ratio = (correctQuestCount * 100 / numberOfQuestions).toFixed(0);
         fadeIn(result_div);
         uploadRecord();
+        document.querySelector(".start-div").style.setProperty("height", "100vh");
+        document.querySelector(".result-div").style.setProperty("height", "100vh");
+        document.querySelector(".answer-div").style.setProperty("height", "0px");
+        gameDiv.style.setProperty("height", "100vh");
     }
 })
 
@@ -340,6 +344,8 @@ function showNextQuestion() {
             }, 500);
         }
     } else {
+        //document.querySelector(".question").style.setProperty("margin-bottom", "10px", "important");
+        //document.querySelector(".question-media").style.setProperty("margin", "0px", "important");
         question_content.style.height = "100%";
         question_media.style.height = "0%";
         option1.option = optionsContentShuffled[0];
@@ -347,6 +353,7 @@ function showNextQuestion() {
         option3.option = optionsContentShuffled[2];
         option4.option = optionsContentShuffled[3];
         resetOptionsClickable();
+        resizeBackground();
         timerStart();
     }
 }
@@ -379,12 +386,14 @@ function updateMedia(url, optionsContent) {
         question_content.style.height = "30%";
         question_content.style.marginBottom = "10px";
         question_media.style.height = "70%";
+        //document.querySelector(".question").style.setProperty("margin-bottom", "5vh", "important");
         preLoadMedia(url, question_video, optionsContent)
     } else {
         question_image.style.display = "none";
         question_video.style.display = "none";
         question_content.style.height = "100%";
         question_media.style.height = "0%";
+        document.querySelector(".question").style.setProperty("margin-bottom", "10px", "important");
         preLoadMedia(url, question_audio, optionsContent)
     }
 }
@@ -416,14 +425,27 @@ function updatePicture(url) {
     question_content.style.height = "30%";
     question_content.style.marginBottom = "10px";
     question_media.style.height = "70%";
+    //document.querySelector(".question").style.setProperty("padding-bottom", "5vh", "important");
+    question_image.onload = function() {
+        let height = document.querySelector(".question").offsetHeight - question_content.offsetHeight;
+        if (window.innerWidth <= 993) {
+            question_media.style.setProperty("height", `${height}px`, "important");
+        } else {
+            question_media.style.setProperty("height", `70%`, "important");
+        }
+        question_image.style.setProperty("height", `100%`, "important");
+        question_image.style.setProperty("width", `auto`, "important");
+    }
+    resizeBackground();
 }
 
 function resizeBackground() {
-    if (gameDiv.offsetHeight < window.innerHeight) {
-        gameDiv.style.setProperty("height", "100vh");
-    } else {
-        gameDiv.style.setProperty("height", `${gameDiv.offsetHeight}px`);
-    }
+    gameDiv.style.setProperty("height", "auto", "important");
+    setTimeout(function() {
+        if (gameDiv.offsetHeight <= window.innerHeight) {
+            gameDiv.style.setProperty("height", "100vh", "important");
+        }
+    }, 50);
 }
 
 //Result zone
@@ -446,3 +468,7 @@ let ratio_result = new Vue({
     }
 })
 
+document.getElementById("newgame").addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location.href = `choosing.html?username=${username}`;
+  });

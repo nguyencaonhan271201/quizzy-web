@@ -6,6 +6,8 @@ let startButtons;
 let urlParams = new URLSearchParams(window.location.search);
 username = urlParams.get("username");
 
+let swiper;
+
 document.addEventListener("DOMContentLoaded", function() {
   if (username != null) {
     fetchTopic();
@@ -82,15 +84,17 @@ function reduceResult(results){
 }
 
 function createCard(apiResult){
-  const container = document.getElementById('topic-card');
+  //const container = document.getElementById('topic-card');
+  const container = document.querySelector('.swiper-wrapper');
   delete apiResult[0];
   for (let i = 1; i < apiResult.length; i++) {
     // Create card element
     const card = document.createElement('div');
     // Construct card content
     const cardContent = `
-      <div class="card col-md-3 col-sm-9 offset-sm-3" id="topic-card-${i}">
-      <img class="card-img-top" src="${apiResult[i].image}" alt="">
+      <div class="swiper-slide">
+      <div class="card col-md-12" id="topic-card-${i}" style="opacity: 0 important!;">
+      <img class="card-img-top img-responsive" src="${apiResult[i].image}" alt="">
       <div class="card-title">
         <h3 class="mb-0"><b>${apiResult[i].name}<b></h3>
       </div>
@@ -113,6 +117,7 @@ function createCard(apiResult){
           <button id="btn-${i}" class="btn-start btn btn-info btn-lg btn-block" style="margin-top: 1rem" ">Start</button>
         </div>
       </div>
+      </div>
     `;
 
     // Append newyly created card element to the container
@@ -127,6 +132,51 @@ function createCard(apiResult){
       let numberOfQuestions = document.getElementById(`input-${id}`).getAttribute("value");
       window.location.href = `game.html?username=${username}&topic=${i + 1}&number=${numberOfQuestions}`;
     })
+  }
+  if (window.innerWidth <= 767 || (window.innerWidth < window.innerHeight)) {
+    swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: '1',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  } else {
+    swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: '3',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  }
+  let card = document.querySelectorAll(".card");
+  card[0].querySelector(".card-img-top").onload = function() {
+    if (card[0].offsetWidth >= card[0].querySelector(".card-img-top").offsetWidth) {
+      $('.card').attr('style', `width: ${card[0].querySelector(".card-img-top").offsetHeight}px !important`);
+    }
+    setTimeout(function() {
+      $('.loading').attr('style', "opacity: 0");
+      $('.jumbotron').attr('style', "opacity: 1");
+    }, 300)
   }
 }
 
@@ -153,6 +203,16 @@ $(document).on('click', '.number-spinner button', function () {
   }
 });
 
+window.addEventListener("resize", function() {
+  if (window.innerWidth <= 767 || (window.innerWidth < window.innerHeight)) {
+    swiper.slidesPerView = 1;
+  } else {
+    swiper.slidesPerView = 3;
+  }
+  swiper.update();
+})
+
+/*
 //card cosmestics
 $(document).on({
   mouseenter: function () {
@@ -170,4 +230,4 @@ $(document).on({
     $(".jumbotron h1").css('color','#f2e3bb');
   }
 },'.card');
-
+*/

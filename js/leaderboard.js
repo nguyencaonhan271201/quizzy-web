@@ -23,7 +23,7 @@ let count_entries = new Vue({
         total: 0,
     }
 })
-let page_size = 10;
+let page_size = 9;
 let main_div = document.querySelector('.main-div')
 let nav_bar = document.querySelector('.navbar');
 
@@ -67,15 +67,16 @@ Number.prototype.pad = function(size) {
 }
 
 function setBackgroundHeight() {
-    height = window.innerHeight - nav_bar.offsetHeight;
+    height = window.innerHeight - nav_bar.offsetHeight + 25;
     main_div.style.setProperty("height", `${height}px`, "important");
-    main_div.style.setProperty("margin-top", `${nav_bar.offsetHeight}px`, "important");
+    main_div.style.setProperty("margin-top", `${nav_bar.offsetHeight - 25}px`, "important");
+    main_div.style.setProperty("padding-top", `40px`, "important");
 }
 
 function resetBackgroundHeight() {
-    main_div.style.setProperty("height", "100%", "important");
-    if (main_div.offsetHeight + nav_bar.offsetHeight > window.innerHeight) {
-        main_div.style.setProperty("height", "100%", "important");
+    main_div.style.setProperty("height", "auto", "important");
+    if (main_div.offsetHeight + nav_bar.offsetHeight - 25 >= window.innerHeight) {
+        main_div.style.setProperty("height", "auto", "important");
     } else {
         setBackgroundHeight();
     }
