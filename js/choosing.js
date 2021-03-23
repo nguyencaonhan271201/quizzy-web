@@ -117,8 +117,7 @@ function createCard(apiResult){
           <button id="btn-${i}" class="btn-start btn btn-info btn-lg btn-block" style="margin-top: 1rem" ">Start</button>
         </div>
       </div>
-      </div>
-    `;
+      </div>`;
 
     // Append newyly created card element to the container
     container.innerHTML += cardContent;
@@ -172,6 +171,8 @@ function createCard(apiResult){
   card[0].querySelector(".card-img-top").onload = function() {
     if (card[0].offsetWidth >= card[0].querySelector(".card-img-top").offsetWidth) {
       $('.card').attr('style', `width: ${card[0].querySelector(".card-img-top").offsetHeight}px !important`);
+    } else if (card[0].offsetHeight >= card[0].querySelector(".card-img-top").offsetHeight) {
+      $('.card').attr('style', `height: ${card[0].querySelector(".card-img-top").offsetWidth}px !important`);
     }
     setTimeout(function() {
       $('.loading').attr('style', "opacity: 0");
@@ -204,12 +205,13 @@ $(document).on('click', '.number-spinner button', function () {
 });
 
 window.addEventListener("resize", function() {
-  if (window.innerWidth <= 767 || (window.innerWidth < window.innerHeight)) {
-    swiper.slidesPerView = 1;
-  } else {
-    swiper.slidesPerView = 3;
-  }
-  swiper.update();
+  // if (window.innerWidth <= 767 || (window.innerWidth < window.innerHeight)) {
+  //   swiper.slidesPerView = 1;
+  // } else {
+  //   swiper.slidesPerView = 3;
+  // }
+  // swiper.update();
+  window.location.reload();
 })
 
 /*
