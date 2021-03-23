@@ -50,7 +50,7 @@ h2, h3, h4, h5, a, p, ::placeholder, button, label, select,table{
     top: 0;
     right: 0;
     left: 0;    
-    background-color: #2B4043;
+    background-color: #2B4043!important;
     border-bottom-left-radius: 25px!important;
     border-bottom-right-radius: 25px!important;
     transition: top 0.3s;
