@@ -141,7 +141,7 @@ btn_next.$el.addEventListener("click", function() {
         document.querySelector(".start-div").style.setProperty("height", "100vh");
         document.querySelector(".result-div").style.setProperty("height", "100vh");
         document.querySelector(".answer-div").style.setProperty("height", "0px");
-        gameDiv.style.setProperty("height", "100vh");
+        gameDiv.style.setProperty("display", "none");
     }
 })
 
