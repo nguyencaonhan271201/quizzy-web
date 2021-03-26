@@ -65,3 +65,7 @@ hr {
 .navbar {
     z-index: 10 !important;
 }
+
+.technique img{
+    object-fit: contain;
+}
